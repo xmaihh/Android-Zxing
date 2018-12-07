@@ -7,15 +7,16 @@ import android.graphics.Color;
 import android.graphics.PointF;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import android.widget.LinearLayout.LayoutParams;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -221,8 +222,8 @@ public class QRCodeUtil {
     protected static Bitmap creatCodeBitmap(String contents, int width,
                                             int height, Context context) {
         TextView tv = new TextView(context);
-        LayoutParams layoutParams = new LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tv.setLayoutParams(layoutParams);
         tv.setText(contents);
         tv.setHeight(height);

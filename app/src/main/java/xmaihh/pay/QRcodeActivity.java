@@ -10,12 +10,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.*;
 import com.google.zxing.*;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
@@ -23,11 +19,15 @@ import xmaihh.pay.zxing.QRCodeUtil;
 
 import java.io.File;
 
+/**
+ * 二维码生成Activity
+ */
 public class QRcodeActivity extends AppCompatActivity {
     private static Button bt_generate = null;
     private static EditText et_url = null;
     private static ImageView iv_qrcode = null;
     private static String url = null;
+    private static CheckBox checkBox = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class QRcodeActivity extends AppCompatActivity {
         bt_generate = findViewById(R.id.btn_generate);
         iv_qrcode = findViewById(R.id.iv_qrcode);
         et_url = findViewById(R.id.et_url);
+        checkBox = findViewById(R.id.ck_logo);
         /**
          * 二维码生成
          */
@@ -46,15 +47,13 @@ public class QRcodeActivity extends AppCompatActivity {
                 final String filePath = getFileRoot(QRcodeActivity.this) + File.separator
                         + "qr_" + System.currentTimeMillis() + ".jpg";
 
-                Log.d("521", "onClick: " + filePath);
-
                 //二维码图片较大时，生成图片、保存文件的时间可能较长，因此放在新线程中
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         boolean success = QRCodeUtil.createQRImage(et_url.getText().toString().trim(), 800, 800,
-//                                addLogoCB.isChecked() ? BitmapFactory.decodeResource(getResources(), R.mipmap.qr_logo) : null,
-                                null,
+                                checkBox.isChecked() ? BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher) :
+                                        null,
                                 filePath);
 
                         if (success) {

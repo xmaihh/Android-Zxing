@@ -13,17 +13,25 @@
             android:id="@+id/et_url"
             android:layout_width="fill_parent"
             android:layout_height="80.0dip"
+            android:layout_gravity="center_horizontal"
             android:text="https://open.alipay.com/platform/home.htm"
             android:hint="请输入生成二维码的文本信息"/>
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:text="是否带Logo图片"
+            android:id="@+id/ck_logo"
+            android:layout_height="wrap_content"/>
     <Button
             android:textSize="18.0dip"
             android:id="@+id/btn_generate"
             android:layout_width="wrap_content"
             android:layout_height="60.0dip"
             android:text="生成二维码图片"/>
+
     <ImageView
             android:id="@+id/iv_qrcode"
             android:layout_width="fill_parent"
+            android:layout_gravity="center_horizontal"
             android:layout_height="0.0dip"
             android:layout_weight="1.0"/>
 </LinearLayout>

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="xmaihh.pay">
+    <!--保存二维码到本地需要开启读写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--扫描二维码需要开启以下权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD" />
-    <uses-permission android:name="android.permission.NFC" />
-    <uses-feature android:name="android.hardware.nfc.hce"/>
     <application
             android:name="android.support.multidex.MultiDexApplication"
             android:allowBackup="true"
@@ -20,34 +17,26 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".QRcodeActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!--生成二维码/条形码界面-->
+        <activity android:name=".QRcodeActivity"/>
 
+        <!--默认扫描二维码界面-->
+        <activity android:name=".DefaultCaptureActivity"/>
 
+        <!--仿微信二维码界面-->
+        <activity android:name=".WeChatCaptureActivity"/>
 
-        <!-- 支付宝支付 -->
+        <!--仿支付宝二维码界面-->
+        <activity android:name=".AliPayCaptureActivity"/>
 
-        <!--<activity-->
-                <!--android:name="com.alipay.sdk.app.H5PayActivity"-->
-                <!--android:configChanges="orientation|keyboardHidden|navigation|screenSize"-->
-                <!--android:exported="false"-->
-                <!--android:screenOrientation="behind"-->
-                <!--android:windowSoftInputMode="adjustResize|stateHidden" >-->
-        <!--</activity>-->
-        <!--<activity-->
-                <!--android:name="com.alipay.sdk.app.H5AuthActivity"-->
-                <!--android:configChanges="orientation|keyboardHidden|navigation"-->
-                <!--android:exported="false"-->
-                <!--android:screenOrientation="behind"-->
-                <!--android:windowSoftInputMode="adjustResize|stateHidden" >-->
-        <!--</activity>-->
-
-        <!-- 支付宝支付 end -->
+        <activity android:name=".CaptureStyleActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/activity_main"
+              android:paddingLeft="16dip"
+              android:paddingTop="10dip"
+              android:paddingRight="16dip"
+              android:paddingBottom="10dip"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+    <Button android:textSize="18.0dip"
+            android:id="@+id/bt_default"
+            android:layout_width="wrap_content"
+            android:layout_height="60.0dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20.0dip"
+            android:text="默认二维码扫描样式"/>
+
+    <Button android:id="@+id/bt_alipay"
+            android:layout_width="wrap_content"
+            android:textSize="18.0dip"
+            android:layout_marginTop="20.0dip"
+            android:text="支付宝AR扫描样式"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="60.0dip"/>
+    <Button android:id="@+id/bt_wechat"
+            android:layout_width="wrap_content"
+            android:textSize="18.0dip"
+            android:layout_marginTop="20.0dip"
+            android:text="微信二维码扫描样式"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="60.0dip"/>
+</LinearLayout>
