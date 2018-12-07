@@ -8,7 +8,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,7 +28,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // 如果只要生成二维码,只需引入core
-    implementation 'com.google.zxing:core:3.3.3'
+//    implementation 'com.google.zxing:core:3.3.3'
 
     //    implementation 'com.google.zxing:android-core:3.3.0'
     // 需要扫描二维码,需要引入zxinglite

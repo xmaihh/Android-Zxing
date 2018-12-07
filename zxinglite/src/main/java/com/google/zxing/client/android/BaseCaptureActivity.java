@@ -360,11 +360,12 @@ public abstract class BaseCaptureActivity extends Activity implements SurfaceHol
 
     /**
      * 播放声音，执行振动
+     *
      * @param playBeep
      * @param vibrate
      */
     public void playBeepSoundAndVibrate(boolean playBeep, boolean vibrate) {
-        if(beepManager == null)
+        if (beepManager == null)
             return;
         beepManager.playBeepSoundAndVibrate(playBeep, vibrate);
     }
@@ -373,7 +374,7 @@ public abstract class BaseCaptureActivity extends Activity implements SurfaceHol
      * 重新开始扫描，因为扫描成功以后是不会再扫描
      */
     public void reScan() {
-        if(hasSurface) {
+        if (hasSurface) {
             Handler handler = getHandler();
             if (handler != null) {
                 Message message = Message.obtain(handler, Ids.decode_failed);
@@ -385,25 +386,21 @@ public abstract class BaseCaptureActivity extends Activity implements SurfaceHol
     /**
      * 获取SurfaceView，用于展示相机的画面，返回null直接报错，必填项。
      *
-     * @return
+     * @return surfaceView
      */
     public abstract SurfaceView getSurfaceView();
 
     /**
      * 获取此视图，可以显示中间限定框，可返回null，返回null，则不显示。
      *
-     * @return
+     * @return AnimeViewCallback
      */
     public AnimeViewCallback getViewfinderHolder() {
         return null;
     }
 
     /**
-     * chu
-     *
-     * @param rawResult
-     * @param barcode
-     * @param scaleFactor
+     * 处理二维码
      */
     public abstract void dealDecode(Result rawResult, Bitmap barcode, float scaleFactor);
 }
